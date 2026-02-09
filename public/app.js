@@ -44,6 +44,8 @@ async function fetchLivePrice() {
   } catch (error) {
     priceDisplay.textContent = "--";
     priceMeta.textContent = "Live price unavailable. Please try again soon.";
+    monitorStatus.textContent = "Live data unavailable. Ensure the backend is running at http://localhost:3000.";
+    monitorStatus.className = "status error";
   }
 }
 
@@ -75,6 +77,8 @@ async function fetchAgentPayload() {
     agentOutput.textContent = JSON.stringify(data, null, 2);
   } catch (error) {
     agentOutput.textContent = "Agent unavailable. Please try again soon.";
+    monitorStatus.textContent = "Agent unavailable. Start the backend server to enable alerts.";
+    monitorStatus.className = "status error";
   }
 }
 
@@ -117,7 +121,8 @@ async function startMonitoring() {
     monitorStatus.textContent = `Monitoring started for ${email}. Alerts will be sent when thresholds are breached.`;
     monitorStatus.className = "status success";
   } catch (error) {
-    monitorStatus.textContent = "Unable to start monitoring. Please try again.";
+    monitorStatus.textContent =
+      "Unable to start monitoring. Ensure the backend is running at http://localhost:3000.";
     monitorStatus.className = "status error";
   }
 }

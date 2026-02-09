@@ -134,6 +134,12 @@ button:hover {
   color: #7f1d1d;
 }
 
+.note {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: #6a5b4a;
+}
+
 .agent-panel pre {
   background: #12100b;
   color: #f8f2e6;
